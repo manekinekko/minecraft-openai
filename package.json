@@ -1,0 +1,16 @@
+{
+  "name": "minecraft-openai",
+  "version": "1.0.0",
+  "description": "Controlling a Minecraft bot using OpenAI",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [],
+  "author": "Wassim Chegham <githu@wassim.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "mineflayer": "^3.11.2",
+    "prismarine-viewer": "^1.21.0"
+  }
+}
