@@ -10,7 +10,18 @@
   "author": "Wassim Chegham <githu@wassim.dev>",
   "license": "MIT",
   "dependencies": {
+    "minecraft-protocol": "^1.29.0",
     "mineflayer": "^3.11.2",
-    "prismarine-viewer": "^1.21.0"
-  }
+    "prismarine-viewer": "^1.21.0",
+    "dotenv": "^10.0.0",
+    "isomorphic-fetch": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manekinekko/minecraft-openai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manekinekko/minecraft-openai/issues"
+  },
+  "homepage": "https://github.com/manekinekko/minecraft-openai#readme"
 }
