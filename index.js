@@ -1,25 +1,59 @@
 const mineflayer = require("mineflayer");
+const fetch = require('isomorphic-fetch');
 
 const bot = mineflayer.createBot({
   username: "OpenAI",
   host: "localhost",
-  port: 51987,
+  port: 51141, //example of port
 });
 
-bot.on("chat", (username, message) => {
+
+
+bot.on("chat", async (username, message) => {
   if (username === bot.username) return;
-  bot.chat(message);
-  if (message === "jump") {
-    // @todo call OpenAI API
-    eval(`
-    bot.setControlState('jump', true);
-    setTimeout(() => {
-      bot.setControlState('jump', false);
-    }, 1000);
-    `);
 
+  context = `
+  // Go forward
+  bot.setControlState('forward', true);
+
+  // Hi how are you ?
+  bot.chat("I'm fine, thanks!");
+
+  // What's your name ?
+  bot.chat("My name is " + bot.username);
+  `
+
+  input = `${context}// ${message}\n`
+
+  async function getResponse(input) {
+    console.log("INPUT :", input)
+    const response = await fetch(
+      'https://api.openai.com/v1/engines/davinci-codex/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': ` Bearer ${CODEX_API_KEY}` //YOUR API KEY HERE
+        },
+        body: JSON.stringify({
+          prompt: input,
+          max_tokens: 300,
+          temperature: 0,
+          stop: "//",
+          n: 1
+        })
+      }
+    );
+    const json = await response.json();
+    return json;
   }
-});
+
+  const response = await getResponse(input);
+  console.log("OPEN AI RESPONSE: ", response)
+  
+  const code = await response.choices.map(choice => choice.text);
+  console.log("CODE: ", code)
+  await eval("(async () => {return " + code + "})()");
+  });
 
 // Log errors and kick reasons:
 bot.on("kicked", console.log);
