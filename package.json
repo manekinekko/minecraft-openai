@@ -1,17 +1,33 @@
 {
   "name": "minecraft-openai",
   "version": "1.0.0",
-  "description": "Controlling a Minecraft bot using OpenAI",
-  "main": "index.js",
+  "description": "Controlling a Minecraft bot using OpenAI and GPT-3",
+  "type": "module",
   "scripts": {
-    "test": "node index.js"
+    "start": "DEBUG=minecraft-openai* node --inspect cli.js start"
   },
-  "keywords": [],
+  "keywords": [
+    "minecraft",
+    "openai",
+    "gpt-3",
+    "bot",
+    "ai",
+    "minecraft-bot",
+    "minecraft-ai",
+    "minecraft-openai"
+  ],
   "author": "Wassim Chegham <githu@wassim.dev>",
   "license": "MIT",
   "dependencies": {
+    "commander": "^9.2.0",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.0",
+    "isomorphic-fetch": "^3.0.0",
     "mineflayer": "^3.11.2",
-    "prismarine-viewer": "^1.21.0",
-    "isomorphic-fetch": "^3.0.0"
+    "mineflayer-pathfinder": "^2.0.0",
+    "prismarine-viewer": "^1.21.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
