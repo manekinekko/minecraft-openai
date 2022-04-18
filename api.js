@@ -6,7 +6,7 @@ import debug from "debug";
 const error = debug("minecraft-openai.api:error");
 const log = debug("minecraft-openai.api:log");
 
-const STOP_WORD = "// ";
+const STOP_WORD = "//";
 const EOL = "\n";
 
 /**
@@ -24,10 +24,10 @@ export async function callOpenAI(input, context) {
   }
 
   const body = {
-    prompt: context + STOP_WORD + input + EOL,
+    prompt: context + STOP_WORD + " " + input + EOL,
     max_tokens: 300,
     temperature: 0,
-    stop: "//",
+    stop: STOP_WORD,
     n: 1,
   };
 
@@ -37,7 +37,7 @@ export async function callOpenAI(input, context) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: ` Bearer ${openAIkey}`,
+      Authorization: `Bearer ${openAIkey}`,
     },
     body: JSON.stringify(body),
   });
