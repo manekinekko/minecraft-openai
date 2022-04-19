@@ -6,7 +6,7 @@ A proof of concept for controlling a Minecraft NPC using OpenAI.
 
 - Clone this project on your local machine.
 - [Minecraft](https://www.minecraft.net/en-us/get-minecraft) (Java Edition) version 1.17
-- Node.js version 16+
+- Node.js version 14+
 - An [OpenAI](https://openai.com) account 
 - Create a `.env` file and copy your [OpenAI API key](https://beta.openai.com/account/api-keys) and save it
 
