@@ -75,7 +75,7 @@ export default async function bot(host, port, username) {
   bot.once("spawn", () => {
     // port is the minecraft server port, if first person is false, you get a bird's-eye view
     try {
-      mineflayerViewer(bot, { port: 8080, firstPerson: true });
+      mineflayerViewer(bot, { port: 31337, firstPerson: true });
     } catch (err) {
       error("error: %s", err.message);
     }

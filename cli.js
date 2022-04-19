@@ -7,12 +7,6 @@ import { program } from "commander";
 const log = debug("minecraft-openai.cli:log");
 const error = debug("minecraft-openai.cli:error");
 
-// check node version and exit if it's not ok
-if (process.version.slice(1).split(".")[0] < 16) {
-  error(`Node.js ${process.version} was detected. Node.js v16+ is required.`);
-  process.exit(1);
-}
-
 program
   .name("minecraft-openai")
   .description("Playing Minecraft with OpenAI (proof of concept)")
