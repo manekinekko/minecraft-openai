@@ -23,6 +23,7 @@
     "debug": "^4.3.4",
     "dotenv": "^16.0.0",
     "isomorphic-fetch": "^3.0.0",
+    "minecraft-data": "^3.0.0",
     "mineflayer": "^3.11.2",
     "mineflayer-pathfinder": "^2.0.0",
     "prismarine-viewer": "^1.21.0"

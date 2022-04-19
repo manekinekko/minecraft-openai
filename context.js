@@ -13,7 +13,15 @@ const defaultContext = [
   
   "// What's your age ?",
   `bot.chat("I'm " + bot.entity.age + " years old");`,
-    
+  
+  // crafting
+  "// Craft sticks",	
+  `var mcData = require('minecraft-data')(bot.version);`,
+  `const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0];`,
+  `await bot.craft(plankRecipe, 1, null);`,
+  `const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0];`,
+  `await bot.craft(stickRecipe, 1, null);`,
+  `bot.chat('Crafting Sticks finished');`,
 ];
 
 /**
