@@ -4,9 +4,11 @@ A proof of concept for controlling a Minecraft NPC using OpenAI.
 
 ## Requirements
 
+- Clone this project on your local machine.
 - [Minecraft](https://www.minecraft.net/en-us/get-minecraft) (Java Edition) version 1.17
+- Node.js version 16+
 - An [OpenAI](https://openai.com) account 
-- Copy your [OpenAI API key](https://beta.openai.com/account/api-keys) and save it in the `.env` file
+- Create a `.env` file and copy your [OpenAI API key](https://beta.openai.com/account/api-keys) and save it
 
 ```
 CODEX_API_KEY=<your_api_key>
@@ -14,7 +16,7 @@ CODEX_API_KEY=<your_api_key>
 
 ## How to use
 
-### Start the Minecradt server
+### Start the Minecraft server
 
 Here is how to start the Minecraft server:
 
@@ -29,9 +31,10 @@ Here is how to start the Minecraft server:
 
 ### Launch the bot
 
-From your terminal, run the following command:
+From your terminal, run the following commands:
 
 ```
+npm install
 npm start -- --port [PORT]
 ```
 
