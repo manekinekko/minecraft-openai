@@ -1,6 +1,6 @@
 # Minecraft OpenAI
 
-A proof of concept for controlling a Minecraft NPC using OpenAI.
+A proof of concept for controlling a Minecraft Non-Player Characters using OpenAI and GPT-3.
 
 ## Requirements
 
@@ -47,3 +47,19 @@ Inside the Minecraft client, press the `T` key to open the chat box.
 ## Disclaimer
 
 This is a proof of concept. It is not intended to be used in production.
+
+## Troubleshooting
+
+### On WSL
+
+If you are using WSL, you may need to provide the host computer's IP address to the bot.
+
+```
+npm start -- --port [PORT] --host [HOST]
+```
+
+To get the IP address of your host computer, run the following command from PowerShell:
+
+```
+wsl hostname -I
+```	
