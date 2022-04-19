@@ -24,7 +24,7 @@ export async function callOpenAI(input, context) {
   }
 
   const body = {
-    prompt: context + STOP_WORD + " " + input + EOL,
+    prompt: `${context}${EOL}${STOP_WORD} ${input}${EOL}`,
     max_tokens: 300,
     temperature: 0,
     stop: STOP_WORD,
@@ -32,6 +32,7 @@ export async function callOpenAI(input, context) {
   };
 
   log("payload %o", body);
+  log("context:\n", body.prompt);
 
   const response = await fetch("https://api.openai.com/v1/engines/davinci-codex/completions", {
     method: "POST",
