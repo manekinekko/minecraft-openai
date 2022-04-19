@@ -4,7 +4,7 @@
   "description": "Controlling a Minecraft bot using OpenAI and GPT-3",
   "type": "module",
   "scripts": {
-    "start": "cross-env DEBUG=minecraft-openai* node --inspect cli.js start"
+    "start": "cross-env DEBUG=minecraft-openai* nodemon --inspect cli.js start"
   },
   "keywords": [
     "minecraft",
