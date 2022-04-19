@@ -21,9 +21,6 @@ export default async function bot(host, port, username) {
   
   
   bot.on("spawn", () => {
-    log("Spawned");
-    bot.chat("/tellraw @a [\"\",{\"text\":\"Hello, I'm OpenAI!\",\"color\":\"dark_green\"}]");
-    
     mcData = minecraftData(bot.version);
     log("Minecraft version: %s", bot.version);
     log("Minecraft protocol version: %s", bot.protocolVersion);
@@ -77,6 +74,10 @@ export default async function bot(host, port, username) {
 
   bot.once("spawn", () => {
     // port is the minecraft server port, if first person is false, you get a bird's-eye view
-    mineflayerViewer(bot, { port: 8080, firstPerson: true });
+    try {
+      mineflayerViewer(bot, { port: 8080, firstPerson: true });
+    } catch (err) {
+      error("error: %s", err.message);
+    }
   });
 }
