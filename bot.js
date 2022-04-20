@@ -61,7 +61,7 @@ export default async function bot(host, port, username) {
         bot.chat(`Loaded context ${contextName}`);
         return;
       }
-    } else if (input.startsWith("clear context")) {
+    } else if (input.startsWith("reset context")) {
       clearContext();
       bot.chat("Cleared context");
       return;

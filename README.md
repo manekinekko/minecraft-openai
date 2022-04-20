@@ -44,6 +44,18 @@ In a few seconds, you should see a message that the bot is running, and you shou
 
 Inside the Minecraft client, press the `T` key to open the chat box.
 
+### Loading context
+
+There are mulptiple supported contexts:
+
+1. `empty`: An empty context (default).
+2. `simple`: A basic context.
+3. `advanced`: A more complex context.
+
+To load a context, type `load context [context_name]`.
+
+You can also reset the current context by typing `reset context`.
+
 ## Disclaimer
 
 This is a proof of concept. It is not intended to be used in production.
