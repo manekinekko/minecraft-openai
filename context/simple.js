@@ -14,6 +14,5 @@ bot.chat("I'm fine, thanks!");
 
 // What's your name ?
 bot.chat("My name is " + bot.username);
-
   `
 ];

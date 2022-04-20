@@ -13,7 +13,7 @@ import collectBlock from "mineflayer-collectblock";
 
 //@ts-ignore
 import mineflayerPathfinder  from "mineflayer-pathfinder";
-const { pathfinder, goals } = mineflayerPathfinder;
+const { pathfinder } = mineflayerPathfinder;
 
 // load available skills
 //@ts-ignore
@@ -55,7 +55,7 @@ export default async function bot(host, port, username) {
     if (username === bot.username) return;
 
     if (input.startsWith("load context")) {
-      const contextName = input.replace("load context ", "");
+      const contextName = input.replace("load context", "").trim();
       if (contextName) {
         await loadContext(contextName);
         bot.chat(`Loaded context ${contextName}`);

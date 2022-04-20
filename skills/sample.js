@@ -9,21 +9,36 @@ export async function followPlayer(bot, range, target) {
   await bot.pathfinder.setGoal(new goals.GoalFollow(target, range));
 }
 
-export async function mineBlock(bot, blockName, mcData) {
-  if (mcData.blocksByName[blockName] === undefined) {
-    bot.chat(`${blockName} is not a block name`);
+export async function mineBlock(bot, type, mcData, count = 1) {
+  const blockType = mcData.blocksByName[type];
+  if (!blockType) {
+    bot.chat(`Unknown block type: ${type}`);
     return;
   }
 
-  const ids = [mcData.blocksByName[blockName].id];
-  bot.chat(`their ids are ${ids}`);
   const blocks = bot.findBlocks({
-    matching: ids,
+    matching: blockType.id,
     maxDistance: 128,
+    count: count
   });
 
-  bot.chat(`I found ${blocks.length} ${blockName} blocks`);
+  if (blocks.length === 0) {
+    bot.chat("I don't see that block nearby.");
+    return;
+  }
 
-  // TODO: this is not working!
-  await bot.collectBlock.collect(blocks);
+  const targets = [];
+  for (let i = 0; i < Math.min(blocks.length, count); i++) {
+    targets.push(bot.blockAt(blocks[i]));
+  }
+
+  bot.chat(`I found ${targets.length} ${type} blocks`);
+
+  try {
+    await bot.collectBlock.collect(targets);
+    bot.chat('Done');
+
+  } catch (err) {
+    bot.chat(err.message);
+  }
 }

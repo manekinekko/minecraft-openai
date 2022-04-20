@@ -24,11 +24,11 @@ watchInterval = setInterval(() => watchPlayer(target, bot), 1000);
 // stop looking at me
 clearInterval(watchInterval);
 
-// Get dirt
-mineBlock(bot, "dirt", mcData);
+// Mine 10 blocks of dirt
+mineBlock(bot, "dirt", mcData, 10);
 
-// Get oak log
-mineBlock(bot, "oak_log");
+// Get 4 oak logs
+mineBlock(bot, "oak_log", mcData, 4);
 
 // Craft sticks
 const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0];
