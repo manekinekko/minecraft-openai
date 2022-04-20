@@ -58,8 +58,8 @@ If you are using WSL, you may need to provide the host computer's IP address to 
 npm start -- --port [PORT] --host [HOST]
 ```
 
-To get the IP address of your host computer, run the following command from PowerShell:
+To get the IP address of your host computer, run the following command:
 
 ```
-wsl hostname -I
+wsl.exe hostname -I
 ```	
