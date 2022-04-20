@@ -7,10 +7,10 @@ bot.entity.position;
 bot.clearControlStates();
 
 // Come to me
-findPlayer(bot, 2, target);
+goToPlayer(bot, 2, target);
 
 // Follow me 
-goToPlayerInterval = setInterval(() => followPlayer(bot, 2, target), 1000);
+goToPlayerInterval = setInterval(() => goToPlayer(bot, 2, target), 1000);
 
 // Stop following me
 clearInterval(goToPlayerInterval);
@@ -26,6 +26,12 @@ clearInterval(watchInterval);
 
 // Mine 10 blocks of dirt
 mineBlock(bot, "dirt", mcData, 10);
+
+// Mine 1 block of dirt
+mineBlock(bot, "dirt", mcData, 1);
+
+// Mine 3 blocks of dirt
+mineBlock(bot, "dirt", mcData, 3);
 
 // Get 4 oak logs
 mineBlock(bot, "oak_log", mcData, 4);

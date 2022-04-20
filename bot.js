@@ -17,7 +17,7 @@ const { pathfinder } = mineflayerPathfinder;
 
 // load available skills
 //@ts-ignore
-import { watchPlayer, followPlayer, mineBlock } from "./skills/sample.js";
+import { watchPlayer, goToPlayer, mineBlock } from "./skills/sample.js";
 
 const log = debug("minecraft-openai.bot:log");
 const error = debug("minecraft-openai.bot:error");

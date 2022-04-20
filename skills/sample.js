@@ -5,7 +5,7 @@ export async function watchPlayer(target, bot) {
   await bot.lookAt(target.position.offset(0, target.height, 0));
 }
 
-export async function followPlayer(bot, range, target) {
+export async function goToPlayer(bot, range, target) {
   await bot.pathfinder.setGoal(new goals.GoalFollow(target, range));
 }
 
