@@ -4,6 +4,7 @@ import mineflayer from "mineflayer";
 import { mineflayer as mineflayerViewer } from "prismarine-viewer";
 import { callOpenAI } from "./api.js";
 import { context, updateContext } from "./context.js";
+import { watchPlayer, followPlayer, mineBlock } from "./skills/sample.js";
 
 const log = debug("minecraft-openai.bot:log");
 const error = debug("minecraft-openai.bot:error");
@@ -18,8 +19,9 @@ export default async function bot(host, port, username) {
     port,
     verbose: true,
   });
-  
-  
+
+  let target = null;
+
   bot.on("spawn", () => {
     mcData = minecraftData(bot.version);
     log("Minecraft version: %s", bot.version);
@@ -32,6 +34,8 @@ export default async function bot(host, port, username) {
 
   bot.on("chat", async (username, input) => {
     if (username === bot.username) return;
+    let goToPlayerInterval = null;
+    let watchInterval = null;
 
     const previousContext = context();
     log("input: %s", input);
@@ -39,6 +43,7 @@ export default async function bot(host, port, username) {
 
     // call the OpenAI API
     const response = await callOpenAI(input, previousContext);
+    target = bot.players[username].entity;
 
     if (response) {
       log("request: %s", response.id);
@@ -81,3 +86,4 @@ export default async function bot(host, port, username) {
     }
   });
 }
+
