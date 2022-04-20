@@ -9,7 +9,22 @@ export async function goToPlayer(bot, range, target) {
   await bot.pathfinder.setGoal(new goals.GoalFollow(target, range));
 }
 
-export async function mineBlock(bot, type, mcData, count = 1) {
+export async function giveToPlayer (bot, name, target, amount = 1) {
+  await goToPlayer(bot, 2, target);
+  bot.on('goal_reached', () => {
+    const items = bot.inventory.items()
+    const item = items.filter(item => item.name === name)[0]
+    if (!item) {
+      bot.chat(`I have no ${ name }`)
+      return false
+    } else if (amount) {
+      bot.toss(item.type, null, amount)
+      bot.chat("Here you go!")
+    }
+  })
+}
+
+export async function mineBlock (bot, type, mcData, count = 1) {
   const blockType = mcData.blocksByName[type];
   if (!blockType) {
     bot.chat(`Unknown block type: ${type}`);

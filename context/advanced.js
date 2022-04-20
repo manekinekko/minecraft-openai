@@ -1,5 +1,20 @@
 export default [
   `
+// Go forward
+bot.setControlState('forward', true);
+
+// Go back
+bot.setControlState('back', true);
+
+// jump
+bot.setControlState('jump', true);
+  
+// Hi how are you ?
+bot.chat("I'm fine, thanks!");
+
+// What's your name ?
+bot.chat("My name is " + bot.username);
+
 // Get bot's current position
 bot.entity.position;
 
@@ -33,14 +48,20 @@ mineBlock(bot, "dirt", mcData, 1);
 // Mine 3 blocks of dirt
 mineBlock(bot, "dirt", mcData, 3);
 
+// Give me 5 dirt
+giveToPlayer (bot, "dirt", target, 5);
+
+// Give 4 dirt
+giveToPlayer (bot, "dirt", target, 4);
+
+// Drop 2 dirt
+giveToPlayer (bot, "dirt", target, 2);
+
+// Drop 1 dirt
+giveToPlayer (bot, "dirt", target, 1);
+
 // Get 4 oak logs
 mineBlock(bot, "oak_log", mcData, 4);
 
-// Craft sticks
-const plankRecipe = bot.recipesFor(mcData.itemsByName.oak_planks.id ?? mcData.itemsByName.planks.id)[0];
-await bot.craft(plankRecipe, 1, null);
-const stickRecipe = bot.recipesFor(mcData.itemsByName.sticks.id)[0];
-await bot.craft(stickRecipe, 1, null);
-bot.chat('Crafting Sticks finished');
   `,
 ];
