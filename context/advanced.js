@@ -9,13 +9,13 @@ bot.setControlState('back', true);
 // jump
 bot.setControlState('jump', true);
   
-// Hi how are you ?
+// Hi how are you?
 bot.chat("I'm fine, thanks!");
 
-// What's your name ?
+// What's your name?
 bot.chat("My name is " + bot.username);
 
-// Get bot's current position
+// what's your location?
 bot.entity.position;
 
 // Stop any movement
@@ -25,6 +25,9 @@ bot.clearControlStates();
 goToPlayer(bot, 2, target);
 
 // Follow me 
+goToPlayerInterval = setInterval(() => goToPlayer(bot, 2, target), 1000);
+
+// Keep following me 
 goToPlayerInterval = setInterval(() => goToPlayer(bot, 2, target), 1000);
 
 // Stop following me
@@ -42,10 +45,10 @@ clearInterval(watchInterval);
 // Mine 10 blocks of dirt
 mineBlock(bot, "dirt", mcData, 10);
 
-// Mine 1 block of dirt
+// Get 1 block of dirt
 mineBlock(bot, "dirt", mcData, 1);
 
-// Mine 3 blocks of dirt
+// Go get me 3 blocks of dirt
 mineBlock(bot, "dirt", mcData, 3);
 
 // Give me 5 dirt

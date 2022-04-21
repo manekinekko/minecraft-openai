@@ -87,7 +87,7 @@ export default async function bot(host, port, username) {
       log("code: ", code);
 
       if (code === "") {
-        bot.chat(`I am sorry, I don't know how to do that.`);
+        bot.chat(`I am sorry, I don't understand.`);
         return;
       }
 
