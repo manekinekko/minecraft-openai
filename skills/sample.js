@@ -11,17 +11,17 @@ export async function goToPlayer(bot, range, target) {
 
 export async function giveToPlayer (bot, name, target, amount = 1) {
   await goToPlayer(bot, 2, target);
-  bot.on('goal_reached', () => {
-    const items = bot.inventory.items()
-    const item = items.filter(item => item.name === name)[0]
+  bot.once('goal_reached', () => {
+    const items = bot.inventory.items();
+    const item = items.filter(item => item.name === name)[0];
     if (!item) {
-      bot.chat(`I have no ${ name }`)
-      return false
+      bot.chat(`I have no ${ name }`);
+      return false;
     } else if (amount) {
-      bot.toss(item.type, null, amount)
-      bot.chat("Here you go!")
+      bot.toss(item.type, null, amount);
+      bot.chat("Here you go!");
     }
-  })
+  });
 }
 
 export async function mineBlock (bot, type, mcData, count = 1) {
@@ -43,7 +43,7 @@ export async function mineBlock (bot, type, mcData, count = 1) {
   }
 
   const targets = [];
-  for (let i = 0; i < Math.min(blocks.length, count); i++) {
+  for (let i = 0; i < count; i++) {
     targets.push(bot.blockAt(blocks[i]));
   }
 
