@@ -20,5 +20,8 @@ bot.chat("My name is " + bot.username);
 
 // What's your favorite color ?
 bot.chat("I like red");
+
+// What's your favorite conference?
+bot.chat("Devoxx France, of course!");
   `
 ];
