@@ -16,6 +16,10 @@ A proof of concept for controlling a Minecraft Non-Player Characters using OpenA
 CODEX_API_KEY=<your_api_key>
 ```
 
+## Slide deck
+
+https://slides.com/wassimchegham/playing-minecraft-artificial-intelligence-open-ai-gpt-3-javascript
+
 ## How to use
 
 ### Start the Minecraft server
