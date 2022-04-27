@@ -2,6 +2,8 @@
 
 A proof of concept for controlling a Minecraft Non-Player Characters using OpenAI and GPT-3.
 
+![playing-minecraft-with-ai-gpt-3-no-text](https://user-images.githubusercontent.com/1699357/165494902-122c763c-7b88-4158-9685-24f0bdecb6b8.jpg)
+
 ## Requirements
 
 - Clone this project on your local machine.
